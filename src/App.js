@@ -35,11 +35,29 @@ const App = () => {
      */
   };
 
+  const aramaHandler = (val) => {
+    setAramaKriteri(val);
+
+    if (val === "") {
+      setGonderiler(sahteVeri);
+    } else {
+      console.log("test filtre arama");
+      const filtered = gonderiler.filter((g) => 
+      g.username.includes(val)
+      );
+      setGonderiler(filtered);
+    }
+  }
+  
+  
   return (
     <div className="App">
       {/* Yukarıdaki metni projeye başladığınızda silin*/}
       {/* AramaÇubuğu ve Gönderiler'i render etmesi için buraya ekleyin */}
-      <AramaCubugu/>
+      <AramaCubugu
+      aramaKriteri={setAramaKriteri}
+      aramaHandler={aramaHandler}
+      />
       <Gonderiler 
         gonderilerProp= {gonderiler}
         gonderiyiBegenFnProp ={gonderiyiBegen}
