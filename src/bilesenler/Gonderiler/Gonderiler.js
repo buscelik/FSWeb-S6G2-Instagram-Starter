@@ -10,11 +10,13 @@ const Gonderiler = (props) => {
     <div className="posts-container-wrapper">
       {/* gönderiler dizisini işleyip her döngüde bir Gönderi bileşeni çağırın*/}
       {gonderilerProp.map((postData, indeks) => {
-        console.log(postData);
-        return <Gonderi 
+        return (
+        <Gonderi 
         key= {indeks} 
         gonderi = {postData} 
-        gonderiyiBegen = {gonderiyiBegenFnProp} />
+        gonderiyiBegen = {gonderiyiBegenFnProp} 
+        />
+        );
       })}
       {/* Gönderi'nin çağırılmasında hangi propları kullanmanız gerektiğine dikkat edin! */}
     </div>
